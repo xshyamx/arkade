@@ -36,6 +36,12 @@ func InitUserDir() (string, error) {
 		return helmPath, helmErr
 	}
 
+	tmpPath := path.Join(root, "/tmp/")
+	tmpErr := os.MkdirAll(tmpPath, 0700)
+	if tmpErr != nil {
+		return tmpPath, tmpErr
+	}
+
 	return root, nil
 }
 

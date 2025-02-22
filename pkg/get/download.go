@@ -135,7 +135,7 @@ func downloadFile(downloadURL string, displayProgress bool) (string, error) {
 	}
 
 	_, fileName := path.Split(downloadURL)
-	tmp := os.TempDir()
+	tmp := filepath.Join(config.GetUserDir(), "tmp")
 
 	customTmp, err := os.MkdirTemp(tmp, "arkade-*")
 	if err != nil {
